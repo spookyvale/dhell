@@ -6,14 +6,21 @@ A very simple application to test the tests tools. :-))))
 ------------------------------------------------------------
 
 To compile application and tests, and run tests:
+
    mvn clean package
 
 To run DHELL:
+
    dhell.sh
+
+
 For more options, use:
+
    dhell.sh -h
 
+
 To run DHELL tests with jUnit:
+
    run_dhell_tests.sh
 
 ------------------------------------------------------------
