@@ -11,7 +11,7 @@ RunFlags="-classpath $ObjDir"
 
 # silent build
 BuildTraces="/tmp/run_hello_app_tests_`date +%Y%m%d_%Hh%M`.traces"
-mvn clean package 2>&1 >$BuildTraces
+mvn clean package >$BuildTraces 2>&1
 
 JarFile=`find $BuildDir -name "*.jar"`
 TestObjDir="$BuildDir/test-classes"

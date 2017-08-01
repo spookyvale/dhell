@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.File;
 import java.util.*;
 
+import myWorld.MyLogger;
+
 // **********************************************************************
 public class MyStorage
 {
@@ -19,6 +21,9 @@ public class MyStorage
    // **********************************************************************
    public static void deleteFile(String fileName)
    {
+      String methodName = "deleteFile";
+      MyLogger.Instance.entering("MyStorage", methodName);
+
       File theFile = null;
 
       // delete file if it already exists
@@ -27,25 +32,40 @@ public class MyStorage
       {
          theFile.delete();
       }
+
+      MyLogger.Instance.exiting("MyStorage", methodName);
    }
 
    // **********************************************************************
    public MyStorage()
    {
+      String methodName = "MyStorage";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       FileName = "my_storage.txt";
       MyData = new ArrayList<String>();
+
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
    }
 
    // **********************************************************************
    public MyStorage(String fileName)
    {
+      String methodName = "MyStorage_String";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       this.FileName = fileName;
       MyData = new ArrayList<String>();
+
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
    }
 
    // **********************************************************************
    public void readData()
    {
+      String methodName = "readData";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       BufferedReader myBuffer = null;
       FileReader myFile = null;
       String currentLine;
@@ -79,11 +99,16 @@ public class MyStorage
       {
          System.out.println("Error: closing " + FileName);
       }
+
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
    }
 
    // **********************************************************************
    public void saveData()
    {
+      String methodName = "saveData";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       try
       {
          PrintStream writer = new PrintStream(new File(FileName));
@@ -97,11 +122,16 @@ public class MyStorage
       {
          System.out.println("Error: cannot write into " + FileName);
       }
+
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
    }
 
    // **********************************************************************
    public boolean isEqual(MyStorage anotherStorage)
    {
+      String methodName = "isEqual";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       boolean areEqual = (getDataSize() == anotherStorage.getDataSize());
 
       for (int i = 0; i < getDataSize() && areEqual; i++)
@@ -112,12 +142,16 @@ public class MyStorage
          } 
       }
 
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
       return(areEqual);
    }
 
    // **********************************************************************
    public boolean dataAreEqual(ArrayList<String> otherData)
    {
+      String methodName = "dataAreEqual";
+      MyLogger.Instance.entering(getClass().getName(), methodName);
+
       boolean areEqual = (getDataSize() == otherData.size());
 
       for (int i = 0; i < getDataSize() && areEqual; i++)
@@ -128,6 +162,7 @@ public class MyStorage
          } 
       }
 
+      MyLogger.Instance.exiting(getClass().getName(), methodName);
       return(areEqual);
    }
 
@@ -155,12 +190,19 @@ public class MyStorage
    // **********************************************************************
    public void addData(String aData)
    {
+      MyLogger.Instance.finest("IN : DataSize = " + Integer.toString(getDataSize())
+         + " - aData = " + aData);
+
       MyData.add(aData);
+
+      MyLogger.Instance.finest("OUT: DataSize = " + Integer.toString(getDataSize()));
    }
 
    // **********************************************************************
    public void delData(String aData)
    {
+      MyLogger.Instance.finest("IN : DataSize = " + Integer.toString(getDataSize()));
+
       boolean found = false;
 
       for (int i = 0; i < getDataSize() && ! found; i++)
@@ -171,6 +213,9 @@ public class MyStorage
             found = true;
          } 
       } 
+
+      MyLogger.Instance.finest("OUT: DataSize = " + Integer.toString(getDataSize())
+         + " - found = " + Boolean.toString(found));
    }
 
    // **********************************************************************

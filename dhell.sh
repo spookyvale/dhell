@@ -20,6 +20,6 @@ MainPath="$MainPackage.$MainClass"
 
 # silent build
 BuildTraces="/tmp/run_hello_app_test_`date +%Y%m%d_%Hh%M`.traces"
-mvn clean package 2>&1 >$BuildTraces
+mvn clean package >$BuildTraces 2>&1
 
 java $RunFlags $MainPath $args
