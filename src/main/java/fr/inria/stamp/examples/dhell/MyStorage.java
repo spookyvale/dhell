@@ -1,4 +1,4 @@
-package myWorld;
+package  fr.inria.stamp.examples.dhell;
 
 // **********************************************************************
 import java.io.PrintStream;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.*;
 
-import myWorld.MyLogger;
+import fr.inria.stamp.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyStorage

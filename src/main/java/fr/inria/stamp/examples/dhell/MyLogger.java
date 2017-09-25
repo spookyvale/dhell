@@ -1,4 +1,4 @@
-package myWorld;
+package  fr.inria.stamp.examples.dhell;
 
 // **********************************************************************
 import java.util.logging.*;

@@ -1,11 +1,11 @@
-package myWorld;
+package fr.inria.stamp.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.io.File;
 import java.util.*;
 
-import myWorld.MyStorage;
+import fr.inria.stamp.examples.dhell.MyStorage;
 
 public class MyStorageTest
 {

@@ -1,8 +1,8 @@
-package myWorld;
+package  fr.inria.stamp.examples.dhell;
 
 // **********************************************************************
-import myWorld.HelloApp;
-import myWorld.MyLogger;
+import fr.inria.stamp.examples.dhell.HelloApp;
+import fr.inria.stamp.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyGod
@@ -93,7 +93,7 @@ public class MyGod
    // **********************************************************************
    public static void printHelp()
    {
-      System.out.println("myWorld.MyGod");
+      System.out.println("fr.inria.stamp.examples.dhell.MyGod");
       System.out.println("Print on stdout a 'Hello World !' message formatted according to");
       System.out.println("<indentation_count>, and generate an output file");
       System.out.println("");

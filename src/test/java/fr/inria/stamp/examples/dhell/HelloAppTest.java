@@ -1,10 +1,10 @@
-package myWorld;
+package  fr.inria.stamp.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.io.File;
 
-import myWorld.HelloApp;
+import fr.inria.stamp.examples.dhell.HelloApp;
 
 public class HelloAppTest
 {

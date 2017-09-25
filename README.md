@@ -32,34 +32,62 @@ When running 'mvn clean package', you should have something like this:
 [INFO] Scanning for projects...
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building hello_app 1.0.0
+[INFO] Building hello_app 1.2.0
 [INFO] ------------------------------------------------------------------------
+[INFO] 
 ...
+
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running myWorld.HelloAppTest
+Running fr.inria.stamp.examples.dhell.MyStorageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in fr.inria.stamp.examples.dhell.MyStorageTest
+Running fr.inria.stamp.examples.dhell.HelloAppTest
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 1 - MyTracesName = myHelloApp.traces
 -
 - Hello World !
 -
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 8 - MyTracesName = foo3.traces
 --------
 -------- Hello World !
 --------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec - in myWorld.HelloAppTest
-Running myWorld.MyStorageTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in myWorld.MyStorageTest
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 22 - MyTracesName = hello_run3.traces
+----------------------
+---------------------- Hello World !
+----------------------
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 1 - MyTracesName = myHelloApp.traces
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 8 - MyTracesName = foo2.traces
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 1 - MyTracesName = foo1.traces
+Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+INFO: MyPrintCount = 8 - MyTracesName = myHelloApp.traces
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in fr.inria.stamp.examples.dhell.HelloAppTest
 
 Results :
-   
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
-  
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+
 [INFO] 
 [INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ hello_app ---
+[INFO] Building jar: /home/cael/stamp/inria_github/dhell/target/hello_app-1.2.0.jar
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 1.461 s
-[INFO] Finished at: 2017-03-20T16:59:21+01:00
-[INFO] Final Memory: 11M/289M
+[INFO] Total time: 2.221 s
+[INFO] Finished at: 2017-09-25T16:40:52+02:00
+[INFO] Final Memory: 18M/295M
 [INFO] ------------------------------------------------------------------------
+```
+
+
+Run Descartes on DHEL
+---------------------
+The pom.xml includes instructions to run Descartes on DHEL. To run Descartes:
+```
+mvn org.pitest:pitest-maven:mutationCoverage
 ```
