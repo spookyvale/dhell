@@ -19,11 +19,6 @@
             <artifactId>junit</artifactId>
             <version>4.11</version>
         </dependency>
-        <dependency>
-            <groupId>fr.inria.stamp</groupId>
-            <artifactId>descartes</artifactId>
-            <version>0.2-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -46,20 +41,12 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>1.2.0</version>
-                <configuration>
-                    <!--
-                    <targetClasses>
-                        <param>com.your.package.root.want.to.mutate*</param>
-                    </targetClasses>
-                    <targetClasses>
-                        <param>com.your.package.root*</param>
-                    </targetClasses>
-                    -->
-                    <mutationEngine>descartes</mutationEngine>
-                    <mutators>
+                    <groupId>org.pitest</groupId>
+                    <artifactId>pitest-maven</artifactId>
+                    <version>1.2.0</version>
+                    <configuration>
+                      <mutationEngine>descartes</mutationEngine>
+                      <mutators>
                         <mutator>void</mutator>
                         <mutator>null</mutator>
                         <mutator>true</mutator>
@@ -81,9 +68,16 @@
                         <mutator>'A'</mutator>
                         <mutator>""</mutator>
                         <mutator>"A"</mutator>
-                    </mutators>
-                </configuration>
-            </plugin>
+                      </mutators>
+                    </configuration>
+                    <dependencies>
+                      <dependency>
+                        <groupId>fr.inria.stamp</groupId>
+                        <artifactId>descartes</artifactId>
+                        <version>0.2-SNAPSHOT</version>
+                      </dependency>
+                    </dependencies>
+                  </plugin>
         </plugins>
     </build>
 
