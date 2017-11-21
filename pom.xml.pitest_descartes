@@ -30,15 +30,10 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>fr.inria.stamp.plugins</groupId>
-        <artifactId>pitmp-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.2.0</version>
         <configuration>
-           <!--
-           -->
-          <targetClasses>
-            <param>fr.inria.stamp.examples.dhell*</param>
-          </targetClasses>
           <excludedClasses>
             <param>fr.inria.stamp.examples.dhell.MyLogger</param>
           </excludedClasses>
