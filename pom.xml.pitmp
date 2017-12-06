@@ -32,7 +32,7 @@
       <plugin>
         <groupId>fr.inria.stamp.plugins</groupId>
         <artifactId>pitmp-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
         <!--
         -->
         <configuration>

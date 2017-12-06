@@ -32,10 +32,10 @@
       <plugin>
         <groupId>fr.inria.stamp.plugins</groupId>
         <artifactId>pitmp-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
+        <!--
+        -->
         <configuration>
-           <!--
-           -->
           <targetClasses>
             <param>fr.inria.stamp.examples.dhell*</param>
           </targetClasses>
@@ -48,38 +48,7 @@
             <param>fr.inria.stamp.examples.dhell.HelloApp.cardMyTraces</param>
             <param>fr.inria.stamp.examples.dhell.HelloApp.getMyTraces</param>
           </excludedMethods>
-          <mutationEngine>descartes</mutationEngine>
-          <mutators>
-            <mutator>void</mutator>
-            <mutator>null</mutator>
-            <mutator>true</mutator>
-            <mutator>false</mutator>
-            <mutator>empty</mutator>
-            <mutator>0</mutator>
-            <mutator>1</mutator>
-            <mutator>(byte)0</mutator>
-            <mutator>(byte)1</mutator>
-            <mutator>(short)1</mutator>
-            <mutator>(short)2</mutator>
-            <mutator>0L</mutator>
-            <mutator>1L</mutator>
-            <mutator>0.0</mutator>
-            <mutator>1.0</mutator>
-            <mutator>0.0f</mutator>
-            <mutator>1.0f</mutator>
-            <mutator>'\40'</mutator>
-            <mutator>'A'</mutator>
-            <mutator>""</mutator>
-            <mutator>"A"</mutator>
-          </mutators>
         </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>fr.inria.stamp</groupId>
-            <artifactId>descartes</artifactId>
-            <version>0.2-SNAPSHOT</version>
-          </dependency>
-        </dependencies>
       </plugin>
 
       <plugin>

@@ -5,6 +5,6 @@ sourcePomFile="pom.xml.pitest_descartes"
 
 mvn clean 2>&1 >/dev/null
 cp $sourcePomFile $pomFile
-mvn install
+mvn install 2>&1 >/dev/null
 
 mvn org.pitest:pitest-maven:mutationCoverage -DmutationEngine=descartes 2>&1 | tee pitest_descartes.traces
