@@ -3,8 +3,11 @@
 # find all classes in target/test-classes and run each of them with jUnit
 ################################################################################
 
-# java -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar  -p dspot.properties -i 1 -t fr.inria.stamp.examples.dhell.HelloAppTest -a MethodAdd
+dspotJar=`ls ../dspot/dspot/target/*dependencies.jar`
+dspotPropertiesFile="dhell.dspot"
 
-java -verbose -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar --path-to-properties dspot.properties --iteration 2 --test fr.inria.stamp.examples.dhell.HelloAppTest --cases test --amplifiers NumberLiteralAmplifier --test-criterion PitMutantScoreSelector
+traceFile="dspot.traces"
 
-# java -jar /home/cael/stamp/inria_github/dspot/target/dspot-1.0.0-jar-with-dependencies.jar --path-to-properties /home/cael/stamp/inria_github/dhell/dspot.properties --iteration 2 --test fr.inria.stamp.examples.dhell.HelloAppTest --cases test --amplifiers NumberLiteralAmplifier --test-criterion PitMutantScoreSelector
+echo "java -jar $dspotJar --path-to-properties $dspotPropertiesFile -i 1 --test fr.inria.stamp.examples.dhell.HelloAppTest -a MethodAdd --verbose" 2>&1 | tee $traceFile
+echo "--------------------------------------------------------------------------------" >>  $traceFile
+java -jar $dspotJar --path-to-properties $dspotPropertiesFile -i 1 --test fr.inria.stamp.examples.dhell.HelloAppTest -a MethodAdd --verbose 2>&1 | tee -a $traceFile
