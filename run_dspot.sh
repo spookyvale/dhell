@@ -1,6 +1,4 @@
 #!/bin/sh
-# running tests
-# find all classes in target/test-classes and run each of them with jUnit
 ################################################################################
 
 dspotJar=`ls ../dspot/dspot/target/*dependencies.jar`
