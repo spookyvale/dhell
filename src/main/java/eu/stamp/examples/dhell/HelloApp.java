@@ -1,8 +1,8 @@
-package fr.inria.stamp.examples.dhell;
+package eu.stamp.examples.dhell;
 
 // **********************************************************************
-import fr.inria.stamp.examples.dhell.MyStorage;
-import fr.inria.stamp.examples.dhell.MyLogger;
+import eu.stamp.examples.dhell.MyStorage;
+import eu.stamp.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class HelloApp

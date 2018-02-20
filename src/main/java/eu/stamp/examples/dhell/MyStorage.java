@@ -1,4 +1,4 @@
-package  fr.inria.stamp.examples.dhell;
+package eu.stamp.examples.dhell;
 
 // **********************************************************************
 import java.io.PrintStream;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.*;
 
-import fr.inria.stamp.examples.dhell.MyLogger;
+import eu.stamp.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyStorage

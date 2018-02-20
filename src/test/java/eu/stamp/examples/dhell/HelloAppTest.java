@@ -1,10 +1,10 @@
-package  fr.inria.stamp.examples.dhell;
+package eu.stamp.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.io.File;
 
-import fr.inria.stamp.examples.dhell.HelloApp;
+import eu.stamp.examples.dhell.HelloApp;
 
 public class HelloAppTest
 {

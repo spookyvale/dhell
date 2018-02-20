@@ -1,4 +1,4 @@
-package  fr.inria.stamp.examples.dhell;
+package eu.stamp.examples.dhell;
 
 // **********************************************************************
 import java.util.logging.*;

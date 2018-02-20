@@ -40,33 +40,33 @@ When running 'mvn clean package', you should have something like this:
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running fr.inria.stamp.examples.dhell.MyStorageTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in fr.inria.stamp.examples.dhell.MyStorageTest
-Running fr.inria.stamp.examples.dhell.HelloAppTest
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Running eu.stamp.examples.dhell.MyStorageTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in eu.stamp.examples.dhell.MyStorageTest
+Running eu.stamp.examples.dhell.HelloAppTest
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 1 - MyTracesName = myHelloApp.traces
 -
 - Hello World !
 -
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 8 - MyTracesName = foo3.traces
 --------
 -------- Hello World !
 --------
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 22 - MyTracesName = hello_run3.traces
 ----------------------
 ---------------------- Hello World !
 ----------------------
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 1 - MyTracesName = myHelloApp.traces
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 8 - MyTracesName = foo2.traces
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 1 - MyTracesName = foo1.traces
-Sep 25, 2017 4:40:51 PM fr.inria.stamp.examples.dhell.HelloApp <init>
+Sep 25, 2017 4:40:51 PM eu.stamp.examples.dhell.HelloApp <init>
 INFO: MyPrintCount = 8 - MyTracesName = myHelloApp.traces
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in fr.inria.stamp.examples.dhell.HelloAppTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in eu.stamp.examples.dhell.HelloAppTest
 
 Results :
 
