@@ -12,4 +12,4 @@
 
 #### Relationships
 
-![help on issue template](ISSUE_DOC.md)
+#### [Help on issue template](ISSUE_DOC.md)
