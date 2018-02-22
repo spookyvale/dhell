@@ -28,6 +28,8 @@ For bugs, this section should describe as well:
 
 #### Steps to reproduce
 A detailed description, step-by-step of the procedure followed by the reporter to reproduce the bug reported.
+
+#### Other files and URLs
 Additional visual proofs, such as snapshots, providing additional visual information of the bug can be included,
 as well as input files required for reproducing the bug or URLs pointed to the sources of such inputs.
 
