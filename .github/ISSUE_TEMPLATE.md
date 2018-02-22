@@ -12,4 +12,4 @@
 
 #### Relationships
 
-#### [Help on issue template](ISSUE_DOC.md)
+#### [Help on issue template](ISSUE_DOC.md) (file: .github/ISSUE_DOC.md)
