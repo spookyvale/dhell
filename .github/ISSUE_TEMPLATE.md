@@ -10,6 +10,8 @@
 
 #### Steps to reproduce
 
+#### Other files and URLs
+
 #### Relationships
 
 #### [Help on issue template](ISSUE_DOC.md) 
