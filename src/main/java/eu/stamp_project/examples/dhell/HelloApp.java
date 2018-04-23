@@ -1,8 +1,8 @@
-package eu.stamp.examples.dhell;
+package eu.stamp_project.examples.dhell;
 
 // **********************************************************************
-import eu.stamp.examples.dhell.MyStorage;
-import eu.stamp.examples.dhell.MyLogger;
+import eu.stamp_project.examples.dhell.MyStorage;
+import eu.stamp_project.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class HelloApp

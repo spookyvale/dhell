@@ -1,4 +1,4 @@
-package eu.stamp.examples.dhell;
+package eu.stamp_project.examples.dhell;
 
 // **********************************************************************
 import java.util.logging.*;
