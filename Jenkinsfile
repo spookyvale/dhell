@@ -1,6 +1,6 @@
 node{
     stage('Checkout'){
-        git url: "https://github.com/STAMP-project/dhell/"
+        checkout scm
     }
 
     stage ('Build') {
