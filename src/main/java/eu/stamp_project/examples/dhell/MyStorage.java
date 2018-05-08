@@ -1,4 +1,4 @@
-package eu.stamp.examples.dhell;
+package eu.stamp_project.examples.dhell;
 
 // **********************************************************************
 import java.io.PrintStream;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.File;
 import java.util.*;
 
-import eu.stamp.examples.dhell.MyLogger;
+import eu.stamp_project.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyStorage

@@ -1,8 +1,8 @@
-package eu.stamp.examples.dhell;
+package eu.stamp_project.examples.dhell;
 
 // **********************************************************************
-import eu.stamp.examples.dhell.HelloApp;
-import eu.stamp.examples.dhell.MyLogger;
+import eu.stamp_project.examples.dhell.HelloApp;
+import eu.stamp_project.examples.dhell.MyLogger;
 
 // **********************************************************************
 public class MyGod
@@ -93,7 +93,7 @@ public class MyGod
    // **********************************************************************
    public static void printHelp()
    {
-      System.out.println("eu.stamp.examples.dhell.MyGod");
+      System.out.println("eu.stamp_project.examples.dhell.MyGod");
       System.out.println("Print on stdout a 'Hello World !' message formatted according to");
       System.out.println("<indentation_count>, and generate an output file");
       System.out.println("");

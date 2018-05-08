@@ -1,10 +1,10 @@
-package eu.stamp.examples.dhell;
+package eu.stamp_project.examples.dhell;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import java.io.File;
 
-import eu.stamp.examples.dhell.HelloApp;
+import eu.stamp_project.examples.dhell.HelloApp;
 
 public class HelloAppTest
 {
