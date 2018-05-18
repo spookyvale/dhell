@@ -4,7 +4,7 @@
      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>eu.stamp.examples</groupId>
+  <groupId>eu.stamp-project.examples</groupId>
   <artifactId>hello_app</artifactId>
   <version>1.2.1</version>
 
@@ -19,12 +19,6 @@
       <artifactId>junit</artifactId>
       <version>4.12</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.pitest</groupId>
-      <artifactId>pitest-maven</artifactId>
-      <version>1.2.0</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -32,8 +26,9 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.2.0</version>
+        <version>1.4.0</version>
         <configuration>
+          <!--
           <excludedClasses>
             <param>eu.stamp.examples.dhell.MyLogger</param>
           </excludedClasses>
@@ -43,6 +38,7 @@
             <param>eu.stamp.examples.dhell.HelloApp.cardMyTraces</param>
             <param>eu.stamp.examples.dhell.HelloApp.getMyTraces</param>
           </excludedMethods>
+          -->
           <mutationEngine>descartes</mutationEngine>
           <mutators>
             <mutator>void</mutator>
@@ -70,9 +66,9 @@
         </configuration>
         <dependencies>
           <dependency>
-            <groupId>fr.inria.stamp</groupId>
+            <groupId>eu.stamp-project</groupId>
             <artifactId>descartes</artifactId>
-            <version>0.2-SNAPSHOT</version>
+            <version>1.2</version>
           </dependency>
         </dependencies>
       </plugin>
