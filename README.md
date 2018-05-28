@@ -1,5 +1,5 @@
 DHELL
-Dummy HELLo world 
+Dummy HELLo world
 
 A very simple application to test the tests tools. :-))))
 
@@ -30,11 +30,11 @@ Expected output
 When running 'mvn clean package', you should have something like this:
 ```
 [INFO] Scanning for projects...
-[INFO]                                                                         
+[INFO]
 [INFO] ------------------------------------------------------------------------
 [INFO] Building hello_app 1.2.0
 [INFO] ------------------------------------------------------------------------
-[INFO] 
+[INFO]
 ...
 
 -------------------------------------------------------
@@ -72,7 +72,7 @@ Results :
 
 Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
 
-[INFO] 
+[INFO]
 [INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ hello_app ---
 [INFO] Building jar: /home/cael/stamp/inria_github/dhell/target/hello_app-1.2.0.jar
 [INFO] ------------------------------------------------------------------------
@@ -89,5 +89,5 @@ Run Descartes on DHEL
 ---------------------
 The pom.xml includes instructions to run Descartes on DHEL. To run Descartes:
 ```
-mvn org.pitest:pitest-maven:mutationCoverage 
+mvn org.pitest:pitest-maven:mutationCoverage
 ```
