@@ -1,5 +1,12 @@
 #!/bin/sh
 ################################################################################
+if test "X$1" = "X"
+then
+   outputFormat="HTML"
+else
+   outputFormat="$1"
+fi
+
 pomFile="pom.xml"
 sourcePomFile="pom.xml.pitmp_descartes"
 
@@ -10,6 +17,7 @@ fileExtension="pitmp_descartes"
 
 echo "######## `date +%T`" 2>&1 | tee $fileExtension.traces
 
-mvn -e pitmp:run 2>&1 | tee -a $fileExtension.traces
+echo mvn pitmp:run "-DoutputFormats=$outputFormat" 2>&1 | tee -a $fileExtension.traces
+mvn pitmp:run "-DoutputFormats=$outputFormat" 2>&1 | tee -a $fileExtension.traces
 
 echo "######## `date +%T`" 2>&1 | tee -a $fileExtension.traces
