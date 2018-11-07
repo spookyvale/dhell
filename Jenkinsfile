@@ -10,7 +10,10 @@ echo ${mvnHome}'''
     }
     stage('Build') {
       steps {
-        sh 'mvn compile'
+        withMaven(maven: 'maven3') {
+          sh 'mvn compile'
+        }
+
       }
     }
     stage('Unit Tests') {
