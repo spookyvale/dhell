@@ -1,6 +1,8 @@
 package eu.stamp_project.examples.dhell;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.junit.Test;
 import java.io.File;
 
@@ -11,6 +13,18 @@ public class HelloAppTest
     // **********************************************************************
     // public
     // **********************************************************************
+    @BeforeClass
+    public static void runOnceAtTheBeginning()
+    {
+         System.out.println("dhell.HelloAppTest: @BeforeClass - runOnceAtTheBeginning");
+    }
+
+    @AfterClass
+    public static void runOnceAtTheEnd()
+    {
+         System.out.println("dhell.HelloAppTest: @AfterClass - runOnceAtTheEnd");
+    }
+
     @Test
     public void testHelloAppDefault() throws Exception
     {
@@ -21,6 +35,7 @@ public class HelloAppTest
         assertEquals(1, myApp.getMyPrintCount());
         assertEquals("myHelloApp.traces", myApp.getMyTracesName());
         assertEquals(0, myApp.cardMyTraces());
+        assertTrue(myApp.returnSomething() > 0);
 
         theFile = new File(myApp.getMyTracesName());
         assertEquals(false, theFile.exists());

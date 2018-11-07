@@ -26,23 +26,13 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.4.0</version>
-        <!--
+        <version>1.4.2</version>
         <configuration>
           <targetClasses>
-            <param>eu.stamp.examples.dhell*</param>
+            <param>eu.stamp_project.examples.dhell.*</param>
           </targetClasses>
-          <excludedClasses>
-            <param>eu.stamp.examples.dhell.MyLogger</param>
-          </excludedClasses>
-          <excludedMethods>
-            <param>eu.stamp.examples.dhell.MyStorage.deleteFile</param>
-            <param>eu.stamp.examples.dhell.HelloApp.myPrint</param>
-            <param>eu.stamp.examples.dhell.HelloApp.cardMyTraces</param>
-            <param>eu.stamp.examples.dhell.HelloApp.getMyTraces</param>
-          </excludedMethods>
+
         </configuration>
-        -->
       </plugin>
 
       <plugin>

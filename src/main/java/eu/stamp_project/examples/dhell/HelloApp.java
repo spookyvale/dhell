@@ -119,6 +119,14 @@ public class HelloApp
     }
 
     // **********************************************************************
+    public Integer returnSomething()
+    {
+        Integer myInt = 1;
+        String myName = "MyName" + myInt.toString();
+        return myName.length();
+    }
+
+    // **********************************************************************
     public void computeMyUselessResult()
     {
         // PI = 3,141 592 653 589 793 - PI (10 chiffres exactes) ~ 104348 / 33215
