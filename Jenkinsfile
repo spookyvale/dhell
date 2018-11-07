@@ -18,7 +18,10 @@ echo ${mvnHome}'''
     }
     stage('Unit Tests') {
       steps {
-        sh 'mvn test'
+        withMaven(maven: 'maven3') {
+          sh 'mvn test'
+        }
+
         junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true)
       }
     }
@@ -26,6 +29,5 @@ echo ${mvnHome}'''
   environment {
     pom = 'readMavenPom file:\'pom.xml\''
     artefactName = '"${pom.getArtifactId()}.${pom.getPackaging()}"'
-    mvnHome = 'tool name: \'maven3\', type: \'hudson.tasks.Maven$MavenInstallation\''
   }
 }
