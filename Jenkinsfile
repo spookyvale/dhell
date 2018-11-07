@@ -31,6 +31,7 @@ echo ${mvnHome}'''
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
         }
 
+        sh 'cp -rf target/dspot/output/eu src/test/java/'
       }
     }
   }
