@@ -10,12 +10,12 @@ echo ${mvnHome}'''
     }
     stage('Build') {
       steps {
-        sh 'sh "${mvnHome}/bin/mvn clean compile"'
+        sh 'mvn compile'
       }
     }
     stage('Unit Tests') {
       steps {
-        sh '${mvnHome}/bin/mvn test'
+        sh 'mvn test'
         junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true)
       }
     }
