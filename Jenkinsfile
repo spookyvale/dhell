@@ -28,7 +28,7 @@ echo ${mvnHome}'''
     stage('Amplify') {
       steps {
         withMaven(maven: 'maven3') {
-          sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot'
+          sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
         }
 
       }
