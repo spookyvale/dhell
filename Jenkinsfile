@@ -32,9 +32,9 @@ echo ${mvnHome}'''
         }
 
         sh 'cp -rf target/dspot/output/eu src/test/java/'
-        sh '''git checkout -b newbranch
+        sh '''git checkout -b newbranchzz
 git commit -a -m "added tests"
-git push --set-upstream origin newbranch
+git push --set-upstream origin newbranchzz
 hub pull-request -m "pull request from jenkins"'''
       }
     }
