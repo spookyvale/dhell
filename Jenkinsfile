@@ -10,7 +10,8 @@ node{
         // ** in the global configuration.
         withEnv(["JAVA_HOME=${ tool 'JDK8' }", "PATH+MAVEN=${tool 'MVN3'}/bin:${env.JAVA_HOME}/bin"]) {
             bat "mvn clean compile"
+            dspot ouputDir: "dspot-output"
         }
-        dspot ouputDir: "dspot-output"
+       
     }
 }
