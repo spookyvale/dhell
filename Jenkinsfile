@@ -35,8 +35,8 @@ echo ${mvnHome}'''
         git commit -a -m "added tests"'''
 
         withCredentials([sshUserPrivateKey(credentialsId: 'nicolabertazzo', keyFileVariable: 'SSH_KEY')]) {
-        sh git remote set-url origin git@github.com:nicolabertazzo/dhell.git
-        sh git push --set-upstream origin newbranchzz
+        sh ("git remote set-url origin git@github.com:nicolabertazzo/dhell.git")
+        sh ("git push --set-upstream origin newbranchzz")
       }
       }
     }
