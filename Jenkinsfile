@@ -31,12 +31,12 @@ echo ${mvnHome}'''
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
         }
         sh 'cp -rf target/dspot/output/eu src/test/java/'
-        sh '''git checkout -b newbranchzz
+        sh '''git checkout -b newbranchxx
         git commit -a -m "added tests"'''
 
         withCredentials([sshUserPrivateKey(credentialsId: 'nicolabertazzo', keyFileVariable: 'SSH_KEY')]) {
         sh ("git remote set-url origin git@github.com:nicolabertazzo/dhell.git")
-        sh ("git push --set-upstream origin newbranchzz")
+        sh ("git push --set-upstream origin newbranchxx")
       }
       }
     }
