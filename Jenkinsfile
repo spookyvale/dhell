@@ -36,7 +36,7 @@ echo ${mvnHome}'''
     }
     stage('Pull Request') {
       environment {
-                GITHUB_CREDS = credentials('jenkins-bitbucket-common-creds')
+                GITHUB_CREDS = credentials('nicolabertazzoToken')
                 GITHUB_TOKEN = "${GITHUB_CREDS_PSW}"
             }
       when {branch 'jenkins_pullrequest'}
