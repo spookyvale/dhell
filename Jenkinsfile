@@ -42,6 +42,7 @@ echo ${mvnHome}'''
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell newbranch${BUILD_NUMBER}')
+          sh('hub pull-request -m "prova pull request Build ${BUILD_NUMBER}"')
         }
       }
     }
@@ -50,4 +51,5 @@ echo ${mvnHome}'''
     pom = 'readMavenPom file:\'pom.xml\''
     artefactName = '"${pom.getArtifactId()}.${pom.getPackaging()}"'
   }
+
 }
