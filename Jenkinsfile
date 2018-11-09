@@ -26,6 +26,7 @@ echo ${mvnHome}'''
       }
     }
     stage('Amplify') {
+        when {branch 'jenkins_pullrequest'}
       steps {
         withMaven(maven: 'maven3') {
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
@@ -35,6 +36,7 @@ echo ${mvnHome}'''
       }
     }
     stage('Pull Request') {
+      when {branch 'jenkins_pullrequest'}
       steps {
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
