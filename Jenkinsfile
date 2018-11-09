@@ -41,7 +41,7 @@ echo ${mvnHome}'''
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzoToken', passwordVariable: 'GITHUB_TOKEN')]) {
-          withEnv(["GITHUB_TOKEN=${GITHUB_TOKEN}"]) {
+          withEnv(['GITHUB_TOKEN=${GITHUB_TOKEN}']) {
              sh 'hub pull-request -m "prova pull request"'
           }
         }
