@@ -33,6 +33,7 @@ echo ${mvnHome}'''
         sh 'cp -rf target/dspot/output/eu src/test/java/'
       }
     }
+
     stage('Pull Request') {
       steps {
       sh 'git checkout -b newbranch${BUILD_NUMBER}'
@@ -44,6 +45,7 @@ echo ${mvnHome}'''
       }
     }
   }
+}
   environment {
     pom = 'readMavenPom file:\'pom.xml\''
     artefactName = '"${pom.getArtifactId()}.${pom.getPackaging()}"'
