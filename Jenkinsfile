@@ -38,6 +38,7 @@ echo ${mvnHome}'''
       environment {
                 GITHUB_CREDS = credentials('nicolabertazzoToken')
                 GITHUB_TOKEN = "${GITHUB_CREDS_PSW}"
+                GITHUB_USER = "${GITHUB_CREDS_USR}"
             }
       when {branch 'jenkins_pullrequest'}
       steps {
