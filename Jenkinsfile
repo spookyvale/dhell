@@ -37,12 +37,11 @@ echo ${mvnHome}'''
     stage('Pull Request') {
       steps {
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
-        withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'nicolabertazzo', keyFileVariable: 'SSH_KEY')]) {
-          sh 'git commit -a -m "added tests"'
-          sh 'git remote set-url origin git@github.com:nicolabertazzo/dhell.git'
-          sh 'git push --set-upstream origin newbranch${BUILD_NUMBER}'
+        sh 'git commit -a -m "added tests"'
+        withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+          sh("git tag -a some_tag -m 'Jenkins'")
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell newbranch${BUILD_NUMBER}')
         }
-
       }
     }
   }
