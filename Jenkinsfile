@@ -41,7 +41,7 @@ echo ${mvnHome}'''
             }
       when {branch 'jenkins_pullrequest'}
       steps {
-        sh 'echo ${env.GITHUB_TOKEN}'
+        sh 'echo ${GITHUB_TOKEN}'
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
