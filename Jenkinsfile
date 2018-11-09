@@ -41,7 +41,6 @@ echo ${mvnHome}'''
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-          sh("git tag -a some_tag -m 'Jenkins'")
           sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell newbranch${BUILD_NUMBER}')
         }
       }
