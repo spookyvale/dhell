@@ -35,14 +35,8 @@ echo ${mvnHome}'''
       }
     }
     stage('Pull Request') {
-      environment {
-                GITHUB_CREDS = credentials('nicolabertazzoToken')
-                GITHUB_TOKEN = "${GITHUB_CREDS_PSW}"
-                GITHUB_USER = "${GITHUB_CREDS_USR}"
-            }
       when {branch 'jenkins_pullrequest'}
       steps {
-        sh 'echo ${GITHUB_TOKEN}'
         sh 'git checkout -b newbranch${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
