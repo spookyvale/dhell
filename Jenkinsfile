@@ -5,7 +5,9 @@ pipeline {
       steps {
         sh '''echo ${pom}
 echo ${artefactName}
-echo ${mvnHome}'''
+echo ${mvnHome}
+echo ${GIT_BRANCH}
+echo ${BUILD_NUMBER} '''
       }
     }
     stage('Build') {
@@ -37,12 +39,12 @@ echo ${mvnHome}'''
     stage('Pull Request') {
       when {branch 'jenkins_pullrequest'}
       steps {
-        sh 'git checkout -b newbranch${BUILD_NUMBER}'
+        sh 'git checkout -b amplifybranch${GIT_BRANCH}${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell newbranch${BUILD_NUMBER}')
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch${GIT_BRANCH}${BUILD_NUMBER}')
         }
-        sh 'hub pull-request -m "prova pull request"'
+        sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on {GIT_BRANCH}"'
         }
       }
     }
