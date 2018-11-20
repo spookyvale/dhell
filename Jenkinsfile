@@ -44,7 +44,7 @@ pipeline {
         sh 'git checkout -b amplifybranch${GIT_BRANCH}${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         // CREDENTIALID
-        withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+        withCredentials([usernamePassword(credentialsId: 'github-user-password', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
         // REPOSITORY URL  
           sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch${GIT_BRANCH}${BUILD_NUMBER}')
         }
