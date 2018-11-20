@@ -45,15 +45,20 @@ pipeline {
         sh 'git commit -a -m "added tests"'
         // CREDENTIALID
         withCredentials([usernamePassword(credentialsId: 'github-user-password', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-        // REPOSITORY URL  
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch${GIT_BRANCH}${BUILD_NUMBER}')
-        }
-        sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on {GIT_BRANCH}"'
+          // REPOSITORY URL  
+          // sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}')
+          withEnv(['GITHUB_USER=${GIT_USERNAME}','GITHUB_PASSWORD=${GIT_PASSWORD}']) {
+           sh 'hub push origin amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
+           sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on ${GIT_BRANCH}"'
+          }
         }
       }
     }
+  }
   environment {
     pom = 'readMavenPom file:\'pom.xml\''
     artefactName = '"${pom.getArtifactId()}.${pom.getPackaging()}"'
   }
 }
+
+
