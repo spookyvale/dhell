@@ -33,7 +33,7 @@ pipeline {
         // CREDENTIALID
         withCredentials([usernamePassword(credentialsId: 'github-user-password', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           // REPOSITORY URL  
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${GIT_URL.replaceAll("https://", "")} amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}')
+          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@${GIT_URL} amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}')
           withEnv(['GITHUB_USER=${GIT_USERNAME}','GITHUB_PASSWORD=${GIT_PASSWORD}']) {
            sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on ${GIT_BRANCH}"'
           }
@@ -42,6 +42,6 @@ pipeline {
     }
   }
    environment {
-    GIT_URL = sh (script: 'git config remote.origin.url', returnStdout: true).trim()
+    GIT_URL = sh (script: 'git config remote.origin.url', returnStdout: true).trim().replaceAll('https://','')
   }
 }
