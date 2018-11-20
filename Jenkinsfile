@@ -17,7 +17,7 @@ pipeline {
       }
     }
     stage('Amplify') {
-        when {branch 'jenkins_pullrequest'}
+        when {branch 'jenkins_develop'}
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
@@ -26,7 +26,7 @@ pipeline {
       }
     }
     stage('Pull Request') {
-      when {branch 'jenkins_pullrequest'}
+      when {branch 'jenkins_develop'}
       steps {
         sh 'git checkout -b amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
