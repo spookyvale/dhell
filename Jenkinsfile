@@ -41,14 +41,14 @@ pipeline {
       steps {
         sh 'git config user.email "nicola.bertazzo@gmail.com"'
         sh 'git config user.name "nicolabertazzo"'
-        sh 'git checkout -b amplifybranch${GIT_BRANCH}${BUILD_NUMBER}'
+        sh 'git checkout -b amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         // CREDENTIALID
         withCredentials([usernamePassword(credentialsId: 'github-user-password', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           // REPOSITORY URL  
-          sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}')
+          // sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}')
           withEnv(['GITHUB_USER=${GIT_USERNAME}','GITHUB_PASSWORD=${GIT_PASSWORD}']) {
-           // sh 'hub push -u origin amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
+           sh 'hub push -u origin amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
            sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on ${GIT_BRANCH}"'
           }
         }
