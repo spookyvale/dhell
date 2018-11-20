@@ -39,6 +39,8 @@ pipeline {
     stage('Pull Request') {
       when {branch 'jenkins_pullrequest'}
       steps {
+        sh 'git config user.email "nicola.bertazzo@gmail.com"'
+        sh 'git config user.name "nicolabertazzo"'
         sh 'git checkout -b amplifybranch${GIT_BRANCH}${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         // CREDENTIALID
