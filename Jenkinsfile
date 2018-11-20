@@ -1,15 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Configuration') {
-      steps {
-        sh '''echo ${pom}
-          echo ${artefactName}
-          echo ${mvnHome}
-          echo ${GIT_BRANCH}
-          echo ${BUILD_NUMBER} '''
-      }
-    }
     stage('Build') {
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
@@ -22,7 +13,6 @@ pipeline {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn test'
         }
-
         junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true)
       }
     }
@@ -32,15 +22,12 @@ pipeline {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
         }
-
         sh 'cp -rf target/dspot/output/eu src/test/java/'
       }
     }
     stage('Pull Request') {
       when {branch 'jenkins_pullrequest'}
       steps {
-        sh 'git config user.email "nicola.bertazzo@gmail.com"'
-        sh 'git config user.name "nicolabertazzo"'
         sh 'git checkout -b amplifybranch-${GIT_BRANCH}-${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
         // CREDENTIALID
@@ -59,5 +46,3 @@ pipeline {
     artefactName = '"${pom.getArtifactId()}.${pom.getPackaging()}"'
   }
 }
-
-
