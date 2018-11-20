@@ -5,8 +5,7 @@ pipeline {
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn compile'
-          GIT_URL = sh (script: 'git config remote.origin.url', returnStdout: true).trim()
-          echo "${GIT_URL}"
+          sh 'echo ${GIT_URL}'
         }
       }
     }
@@ -42,5 +41,8 @@ pipeline {
         }
       }
     }
+  }
+   environment {
+    GIT_URL = sh (script: 'git config remote.origin.url', returnStdout: true).trim()
   }
 }
