@@ -4,22 +4,22 @@ pipeline {
     stage('Configuration') {
       steps {
         sh '''echo ${pom}
-echo ${artefactName}
-echo ${mvnHome}
-echo ${GIT_BRANCH}
-echo ${BUILD_NUMBER} '''
+          echo ${artefactName}
+          echo ${mvnHome}
+          echo ${GIT_BRANCH}
+          echo ${BUILD_NUMBER} '''
       }
     }
     stage('Build') {
       steps {
-        withMaven(maven: 'maven3') {
+        withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn compile'
         }
       }
     }
     stage('Unit Tests') {
       steps {
-        withMaven(maven: 'maven3') {
+        withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn test'
         }
 
@@ -29,7 +29,7 @@ echo ${BUILD_NUMBER} '''
     stage('Amplify') {
         when {branch 'jenkins_pullrequest'}
       steps {
-        withMaven(maven: 'maven3') {
+        withMaven(maven: 'maven3', jdk: 'JDK8') {
           sh 'mvn eu.stamp-project:dspot-maven:amplify-unit-tests -Dpath-to-properties=dhell.dspot -Damplifiers=TestDataMutator -Dtest-criterion=JacocoCoverageSelector -Diteration=1'
         }
 
@@ -41,7 +41,9 @@ echo ${BUILD_NUMBER} '''
       steps {
         sh 'git checkout -b amplifybranch${GIT_BRANCH}${BUILD_NUMBER}'
         sh 'git commit -a -m "added tests"'
+        // CREDENTIALID
         withCredentials([usernamePassword(credentialsId: 'nicolabertazzo', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+        // REPOSITORY URL  
           sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/nicolabertazzo/dhell amplifybranch${GIT_BRANCH}${BUILD_NUMBER}')
         }
         sh 'hub pull-request -m "Amplify pull request from build ${BUILD_NUMBER} on {GIT_BRANCH}"'
