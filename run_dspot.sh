@@ -1,7 +1,9 @@
 #!/bin/sh
 ################################################################################
 
-dspotJar=`ls ../dspot/dspot/target/*dependencies.jar`
+# get dspot jar
+wget -nc https://github.com/STAMP-project/dspot/releases/download/dspot-1.2.1/dspot-1.2.1-jar-with-dependencies.jar
+dspotJar=`ls *dependencies.jar`
 dspotPropertiesFile="dhell.dspot"
 
 traceFile="dspot.traces"
