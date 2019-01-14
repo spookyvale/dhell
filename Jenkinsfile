@@ -16,6 +16,13 @@ pipeline {
         junit(testResults: 'target/surefire-reports/*.xml', allowEmptyResults: true)
       }
     }
+    stage('Test your tests') {
+      steps {
+        withMaven(maven: 'maven3', jdk: 'JDK8') {
+          sh 'mvn org.pitest:pitest-maven:mutationCoverage'
+        }
+      }
+    }
     stage('Amplify') {
         when {branch 'jenkins_develop'}
       steps {
