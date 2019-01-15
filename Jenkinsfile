@@ -19,8 +19,16 @@ pipeline {
     stage('Test your tests') {
       steps {
         withMaven(maven: 'maven3', jdk: 'JDK8') {
-          sh 'mvn org.pitest:pitest-maven:mutationCoverage'
+          sh 'mvn org.pitest:pitest-maven:mutationCoverage -DoutputFormats=HTML'
         }
+        publishHTML (target: [
+      		allowMissing: false,
+      		alwaysLinkToLastBuild: false,
+      		keepAll: true,
+      		reportDir: 'target/pit-reports',
+      		reportFiles: '**/index.html',
+      		reportName: "Pit Decartes"
+    	])
       }
     }
     stage('Amplify') {
