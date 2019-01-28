@@ -85,7 +85,7 @@ Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
 ```
 
 
-Run Descartes on DHEL
+Run Descartes on DHELL
 ---------------------
 The pom.xml includes instructions to run Descartes on DHEL. To run Descartes:
 ```
