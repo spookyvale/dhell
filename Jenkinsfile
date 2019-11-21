@@ -11,8 +11,6 @@ node{
         withEnv(["JAVA_HOME=${ tool 'JDK8' }", "PATH+MAVEN=${tool 'MVN3'}/bin:${env.JAVA_HOME}/bin"]) {
             bat "mvn -f pom.xml.pitest_descartes clean install org.pitest:pitest-maven:mutationCoverage -DmutationEngine=descartes"
         }
-    }
-    stage ('Results'){
         dspot-report
-     }
+    }
 }
