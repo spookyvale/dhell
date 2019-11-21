@@ -1,5 +1,5 @@
-DHELL
-Dummy HELLo world
+DHELL 
+Dummy HELLo world 
 
 A very simple application to test the tests tools. :-))))
 
@@ -84,8 +84,7 @@ Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 ```
 
-
-Run Descartes on DHEL
+Run Descartes on DHELL
 ---------------------
 The pom.xml includes instructions to run Descartes on DHEL. To run Descartes:
 ```

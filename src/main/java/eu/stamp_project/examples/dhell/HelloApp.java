@@ -200,6 +200,15 @@ public class HelloApp
         }
         MyTraces.addData(message);
     }
+    
+    public String getMyAppSystemInformation(boolean detailed) {
+    	String myAppGeneralInfo = "My App General Infos";
+    	String myAppDetailedInfo = "My App Detailed Infos";
+    	if (detailed) {
+    		return myAppDetailedInfo;
+    	}
+    	return myAppGeneralInfo;
+    }
 
     // **********************************************************************
     // private

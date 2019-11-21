@@ -166,6 +166,31 @@ public class HelloAppTest
         assertEquals(true, countString.equals(fileContent.getData(0)));
         assertEquals(true, helloString.equals(fileContent.getData(2)));
     }
+    
+    @Test
+    public void testHelloAppSomeInfoAreReturned() throws Exception {
+    	HelloApp myApp = null;
+        int myCount = 22;
+        String MyTracesName = "hello_run3.traces";
+    	myApp = new HelloApp(myCount, MyTracesName);
+        
+        
+    	assertTrue("App should return some info", myApp.getMyAppSystemInformation(true)!= null);
+    }
+    
+    @Test
+    public void testHelloAppDetailedInfoAreReturned() throws Exception {
+    	HelloApp myApp = null;
+        int myCount = 22;
+        String MyTracesName = "hello_run3.traces";
+        
+        String expectedDetailedInfo = "My App Detailed Infos";
+        
+    	myApp = new HelloApp(myCount, MyTracesName);
+        
+        
+    	assertEquals("App should return deatailed info", expectedDetailedInfo, myApp.getMyAppSystemInformation(true));
+    }
 
     // **********************************************************************
     // private
